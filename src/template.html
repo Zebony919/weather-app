@@ -8,14 +8,29 @@
     </head>
 
     <body>
-        <h1>Weather App</h1><br>
+        <section class="user-input">
+            <h1>Weather App</h1>
+            <input type="text" id="location" placeholder="Enter Location">
+            <button id="searchBtn">Fetch Location's Weather</button><br>
+        </section>
 
-        <input type="text" id="location" placeholder="Enter Location">
-        <button id="searchBtn">Fetch Location's Weather</button><br>
 
-        <p id="temperature">Temp: </p>
-        <p id="description">Description: </p>
-        <p id="humidity">Humidity: </p>
-        <p id="windSpeed">Wind Speed: </p>
+        <section class="main-content">
+            <div class="header">
+                <h1 class="location">City</h1>
+                <p id="description">Description: </p>
+            </div>
+
+            <div class="information">
+                <div class="temp-display">
+                    <p id="temperature">Temp: </p>
+                </div>
+
+                <div class="stats">
+                    <p id="humidity">Humidity: </p>
+                    <p id="windSpeed">Wind Speed: </p>
+                </div>
+            </div>
+        </section>
     </body> 
 </html>

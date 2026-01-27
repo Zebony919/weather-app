@@ -12,7 +12,7 @@ export async function fetchWeather(location) {
 
         const data = await response.json();
         console.log(data);
-        tempText.textContent = "Temp: " + data.currentConditions.feelslike;
+        tempText.textContent = "Temp: " + convertFahrenheitToCelsius(data.currentConditions.feelslike).toFixed(1);
         description.textContent = "Description: " + data.currentConditions.conditions;
         humidity.textContent = "Humidity: " + data.currentConditions.humidity;
         windSpeed.textContent = "Wind Speed: " + data.currentConditions.windspeed + " km/h";
@@ -20,4 +20,8 @@ export async function fetchWeather(location) {
     catch(error) {
         console.error(error);
     }
+}
+
+function convertFahrenheitToCelsius(temp) {
+    return (temp - 32) * (5/9);
 }

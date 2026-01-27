@@ -1,3 +1,4 @@
+import "./style.css"
 import { fetchWeather } from "./fetchWeather.js"
 
 document.addEventListener("DOMContentLoaded", () => {
