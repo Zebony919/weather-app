@@ -9,16 +9,21 @@
 
     <body>
         <section class="user-input">
-            <h1>Weather App</h1>
-            <input type="text" id="location" placeholder="Enter Location">
-            <button id="searchBtn">Fetch Location's Weather</button><br>
+            <div class="inputHeader">
+                <h1>Weather App</h1>
+            </div>
+
+            <div class="inputSearch">
+                <input type="text" id="location" placeholder="Enter Location">
+                <button id="searchBtn">Fetch Location's Weather</button>
+            </div>
         </section>
 
 
         <section class="main-content">
             <div class="header">
                 <h1 class="location">City</h1>
-                <p id="description">Description: </p>
+                <p id="description">Description</p>
             </div>
 
             <div class="information">
@@ -39,6 +44,7 @@
                 <div class="stats">
                     <p id="humidity">Humidity: </p>
                     <p id="windSpeed">Wind Speed: </p>
+                    <p id="cloudCover">Cloud Cover: </p>
                 </div>
             </div>
         </section>

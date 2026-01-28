@@ -30,10 +30,15 @@ export function displayWeather(weather) {
     const description = document.querySelector("#description");
     const humidity = document.querySelector("#humidity");
     const windSpeed = document.querySelector("#windSpeed");
+    const cloudCover = document.querySelector("#cloudCover");
 
     city.textContent = weather.city;
     tempText.textContent = weather.getCurrentTemp() + weather.getTempUnit();
     description.textContent = weather.description;
     humidity.textContent = "Humidity: " + weather.humidity;
-    windSpeed.textContent = "Wind Speed: " + weather.windSpeed;
+    windSpeed.textContent = "Wind Speed: " + weather.windSpeed + "km/h";
+    cloudCover.textContent = "Cloud Cover: " + weather.cloudCover;
+
+    document.body.className = "";
+    document.body.classList.add(weather.getBackgroundClass())
 }

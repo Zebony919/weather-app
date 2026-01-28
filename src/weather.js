@@ -6,7 +6,27 @@ export class Weather {
         this.description = data.currentConditions.conditions;
         this.humidity = data.currentConditions.humidity;
         this.windSpeed = data.currentConditions.windspeed;
+        this.cloudCover = data.currentConditions.cloudcover;
+        this.icon = data.currentConditions.icon;
+        this.time = data.currentConditions.datetime;
         this.isCelsius = true;
+    }
+
+    getBackgroundClass() {
+        const iconMap = {
+            'clear-day': 'bg-clear-day',
+            'clear-night': 'bg-clear-night',
+            'rain': 'bg-rain',
+            'snow': 'bg-snow',
+            'sleet': 'bg-sleet',
+            'wind': 'bg-windy',
+            'fog': 'bg-fog',
+            'cloudy': 'bg-cloudy',
+            'partly-cloudy-day': 'bg-partly-cloudy-day',
+            'partly-cloudy-night': 'bg-partly-cloudy-night',
+        };
+
+        return iconMap[this.icon] || "bg-defaul";
     }
 
     convertFahrenheitToCelsius(temp) {
