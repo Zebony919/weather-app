@@ -10,6 +10,19 @@ body {
     padding: 0;
 }
 
+h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.header,
+#description,
+.location,
+.temp-display,
+.tempMain {
+    border: 2px solid red;
+}
+
 .user-input {
     height: 150px;
     width: 400px;
@@ -28,25 +41,71 @@ body {
     border: 6px solid black;
     border-radius: 15px;
     background-color: grey;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    margin-bottom: 100px;
-    gap: 20px;
+    display: grid;
+    grid-template-rows: 2fr 5fr;
+    padding: 10px;
+}
+
+.header,
+.temp-display,
+.stats {
+    border-radius: 15px;
 }
 
 .header {
-    width: 100%;
     background-color: rgb(0, 217, 255);
     display: flex;
+    align-items: center;
+}
+
+.location {
+    font-size: 50px;
+}
+
+#description {
+    margin-left: 350px;
 }
 
 .information {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
 }
 
+/* Temperature Display */
 .temp-display {
-    height: 100%;
-    width: 100px;
+    background-color: rgb(0, 217, 255);
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.tempMain {
+    width: 100%;
+    padding-left: 30px;
+}
+
+#temperature {
+    font-size: 120px;
+}
+
+.tempBtn {
+    display: flex;
+    align-items: flex-end;
+}
+
+#tempTypeBtn {
+    margin: 10px;
+    margin-bottom: 25px;
+    color: white;
+    background-color: blue;
+    border-radius: 15px;
+}
+
+#tempTypeBtn:hover {
+    background-color: rgb(0, 140, 255);
+}
+
+.stats {
     background-color: rgb(0, 217, 255);
 }

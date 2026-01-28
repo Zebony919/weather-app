@@ -1,9 +1,7 @@
+import { Weather } from "./weather.js";
+
 export async function fetchWeather(location) {
     try {
-        const tempText = document.querySelector("#temperature");
-        const description = document.querySelector("#description");
-        const humidity = document.querySelector("#humidity");
-        const windSpeed = document.querySelector("#windSpeed");
         const response = await fetch(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?key=CBHNLFGAN2RTA6H35442DVVDP`)
 
         if (!response.ok) {
@@ -12,16 +10,30 @@ export async function fetchWeather(location) {
 
         const data = await response.json();
         console.log(data);
-        tempText.textContent = "Temp: " + convertFahrenheitToCelsius(data.currentConditions.feelslike).toFixed(1);
-        description.textContent = "Description: " + data.currentConditions.conditions;
-        humidity.textContent = "Humidity: " + data.currentConditions.humidity;
-        windSpeed.textContent = "Wind Speed: " + data.currentConditions.windspeed + " km/h";
+
+        const weather = new Weather(data, location);
+        return weather
     }
     catch(error) {
         console.error(error);
     }
 }
 
-function convertFahrenheitToCelsius(temp) {
-    return (temp - 32) * (5/9);
+export function displayWeather(weather) {
+    if (!weather) {
+        console.log("No weather data to display!");
+        return;
+    }
+
+    const city = document.querySelector(".location");
+    const tempText = document.querySelector("#temperature");
+    const description = document.querySelector("#description");
+    const humidity = document.querySelector("#humidity");
+    const windSpeed = document.querySelector("#windSpeed");
+
+    city.textContent = weather.city;
+    tempText.textContent = weather.getCurrentTemp() + weather.getTempUnit();
+    description.textContent = weather.description;
+    humidity.textContent = "Humidity: " + weather.humidity;
+    windSpeed.textContent = "Wind Speed: " + weather.windSpeed;
 }
