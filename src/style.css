@@ -98,7 +98,7 @@ h1 {
     width: 800px;
     border: 6px solid black;
     border-radius: 15px;
-    background-color: grey;
+    background-color: rgb(52, 46, 107);
     display: grid;
     grid-template-rows: 2fr 5fr;
     padding: 10px;
